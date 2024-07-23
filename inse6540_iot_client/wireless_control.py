@@ -4,7 +4,7 @@ from utime import sleep, ticks_ms, ticks_diff
 import constants
 
 class Wireless:
-    
+    # Use a singleton strategy for this.
     wlan = None
     
     def connect(self):
