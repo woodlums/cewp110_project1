@@ -11,11 +11,6 @@ def hello():
 
 @app.route("/reading", methods=['POST'])
 def create_reading():
-    # reading_value = request.form.get('reading_value')
-    # reading_value_unit = request.form.get('reading_value_unit')
-    # reading_timestamp = request.form.get('reading_timestamp')
-    # reading_type = request.form.get('reading_type')
-
     incoming = request.json
     reading_value = incoming.get('reading_value')
     reading_value_unit = incoming.get('reading_value_unit')
@@ -35,7 +30,6 @@ def create_reading():
                                   f"('{reading_timestamp}', '{reading_value}', "
                                   f"'{reading_value_unit}', '{reading_type}');")
         print(mysql_insert_query)
-
         cursor = connection.cursor()
         cursor.execute(mysql_insert_query)
         connection.commit()
